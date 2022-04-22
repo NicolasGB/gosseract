@@ -1,12 +1,9 @@
 package gosseract
 
-// #if __FreeBSD__ >= 10
-// #cgo LDFLAGS: -L/usr/local/lib -llept -ltesseract
-// #else
-// #cgo CXXFLAGS: -std=c++0x
-// #cgo LDFLAGS: -llept -ltesseract
-// #cgo CPPFLAGS: -Wno-unused-result
-// #endif
+// #cgo linux CXXFLAGS: -std=c++0x
+// #cgo linux LDFLAGS: -L/usr/local/lib -llept -ltesseract
+// #cgo windows CXXFLAGS: -std=c++0x -Iinclude
+// #cgo windows LDFLAGS: -Ltesseract -llibtesseract-5 -Llept -lliblept-5
 // #include <stdlib.h>
 // #include <stdbool.h>
 // #include "tessbridge.h"
